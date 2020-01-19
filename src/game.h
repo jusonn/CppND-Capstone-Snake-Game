@@ -17,12 +17,16 @@ class Game {
 
  private:
   Snake snake;
-  SDL_Point food;
+  SDL_Point food1;
+  SDL_Point food2;
 
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
+  std::uniform_int_distribution<int> random_w2;
+  std::uniform_int_distribution<int> random_h2;
+  std::uniform_real_distribution<float> random_speed;
 
   int score{0};
 

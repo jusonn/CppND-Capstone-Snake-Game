@@ -1,6 +1,7 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
+#include <random>
 #include <vector>
 #include "SDL.h"
 
@@ -35,6 +36,9 @@ class Snake {
   bool growing{false};
   int grid_width;
   int grid_height;
+
+  std::mt19937 engine;
+  std::uniform_int_distribution<int> random_size;
 };
 
 #endif
