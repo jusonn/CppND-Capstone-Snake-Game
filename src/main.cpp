@@ -1,7 +1,19 @@
 #include <iostream>
+#include <fstream>
+#include <iostream>
 #include "controller.h"
 #include "game.h"
 #include "renderer.h"
+
+void saveResult(int score, int size) {
+  std::string output = "result.txt";
+  std::ofstream writeFile(output.data());
+  if (writeFile.is_open()) {
+    writeFile << "Score: " << score << std::endl;
+    writeFile << "Size: " << size << std::endl;
+    writeFile.close();
+  }
+}
 
 int main() {
   constexpr std::size_t kFramesPerSecond{60};
@@ -18,5 +30,7 @@ int main() {
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
   std::cout << "Size: " << game.GetSize() << "\n";
+
+  saveResult(game.GetScore(), game.GetSize());
   return 0;
 }
